@@ -6,6 +6,12 @@ volume_percentage=$(pamixer --get-volume)
 
 battery_percentage=$(cat /sys/class/power_supply/BAT0/capacity)%
 
+maximum_brightness=$(brightnessctl m)
+
+current_brightness=$(brightnessctl g)
+
+current_percentage=$($current_brightness / $maximum_brightness * 100)
+
 custom_space=$('    ')
 
-echo "Vol ${volume_percentage}% ${custom_space} | ${custom_space} ${battery_percentage} ${custom_space} | ${custom_space} ${battery_status} ${custom_space} | ${custom_space} ${date_formatted}"
+echo "${current_brightness} / ${maximum_brightness} ${custom_space} | ${custom_space} Vol ${volume_percentage}% ${custom_space} | ${custom_space} ${battery_percentage} ${custom_space} | ${custom_space} ${battery_status} ${custom_space} | ${custom_space} ${date_formatted}"
