@@ -102,6 +102,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 500-
 
 bindsym XF86AudioRaiseVolume exec pamixer -i 5
 bindsym XF86AudioLowerVolume exec pamixer -d 5
+bindsym $mod+Shift+XF86AudioRaiseVolume exec pamixer -i 20
+bindsym $mod+Shift+XF86AudioLowerVolume exec pamixer -d 20
 bindsym XF86AudioMute exec pamixer -t
 
 bindsym $mod+Alt+s exec grim
